@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UGC Impulse</title>
+<meta name="description" content="UGC Impulse: agencia de contenido UGC para marcas y red + academia para creadores UGC. España y Latinoamérica, en español e inglés.">
+<meta property="og:title" content="UGC Impulse · Contenido UGC para marcas, formación para creadores">
+<meta property="og:description" content="Vídeos con creadores reales para anuncios y redes. Y una red y academia para creadores que quieren trabajar con marcas.">
+<meta property="og:url" content="https://ugcimpulse.com">
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+</head>
+<body>
+
+<!-- POP-UP INICIAL -->
+<div class="pop" id="pop" role="dialog" aria-modal="true" aria-labelledby="pop-t" hidden>
+ <div class="pop-card">
+  <button class="pop-x" type="button" data-close aria-label="Cerrar">×</button>
+  <span class="logo"><img src="logo-horizontal.png" alt="UGC Impulse" width="180" height="41"></span>
+  <h2 id="pop-t" data-en="Welcome. What brings you here?">Bienvenido/a. ¿Qué te trae por aquí?</h2>
+  <p class="muted" data-en="We'll show you what's relevant to you. You can switch at any time from the menu.">Te mostramos lo que te interesa. Puedes cambiarlo cuando quieras desde el menú.</p>
+  <div class="choices">
+   <button class="choice" type="button" data-aud-set="creador">
+    <b data-en="I'm a creator">Soy creador/a</b>
+    <span class="muted" data-en="I want to train, join the network and work with brands.">Quiero formarme, entrar en la red y trabajar con marcas.</span>
+    <span class="go" data-en="Go to the creator area">Ir al área de creadores</span>
+   </button>
+   <button class="choice dark" type="button" data-aud-set="marca">
+    <b data-en="I'm a brand">Soy marca</b>
+    <span class="muted" data-en="I'm looking for UGC videos for ads, social media or my store.">Busco vídeos UGC para anuncios, redes o mi tienda.</span>
+    <span class="go" data-en="Go to the brand area">Ir al área de marcas</span>
+   </button>
+  </div>
+  <button class="pop-skip" type="button" data-close data-en="Just looking">Solo estoy mirando</button>
+ </div>
+</div>
+
+<header class="top">
+ <div class="wrap">
+  <a class="logo" href="#inicio"><img src="logo-horizontal.png" alt="UGC Impulse" width="180" height="41"></a>
+  <nav class="nav" id="nav" aria-label="Principal">
+   <div class="dd">
+    <button type="button" aria-haspopup="true" data-en="Services">Servicios</button>
+    <div class="menu">
+     <a href="#s-services"><b data-en="UGC content">Contenido UGC</b><span data-en="Testimonials, unboxings, tutorials and reviews">Testimonios, unboxing, tutoriales y reseñas</span></a>
+     <a href="#s-services"><b data-en="UGC ads">Anuncios con UGC</b><span data-en="Hooks and variants for Meta and TikTok Ads">Hooks y variantes para Meta y TikTok Ads</span></a>
+     <a href="#s-services"><b data-en="TikTok and social commerce">TikTok y social commerce</b><span data-en="Content for TikTok Shop and affiliates">Contenido para TikTok Shop y afiliados</span></a>
+     <a href="#s-sectors"><b data-en="By sector">Por sector</b><span data-en="Beauty, food, tech, home, fashion…">Belleza, comida, tecnología, hogar, moda…</span></a>
+    </div>
+   </div>
+   <div class="dd">
+    <button type="button" aria-haspopup="true" data-en="Creators">Creadores</button>
+    <div class="menu">
+     <a href="#s-join"><b data-en="Join the network">Únete a la red</b><span data-en="Apply and get paid campaigns">Postúlate y recibe campañas pagadas</span></a>
+     <a href="academia.html"><b data-en="Academy">Academia</b><span data-en="UGC course and 1:1 mentoring">Curso UGC y mentoría 1:1</span></a>
+     <a href="#s-faq" data-faq="creador"><b data-en="Creator FAQ">Preguntas de creadores</b><span data-en="Followers, rights, payments">Seguidores, derechos, pagos</span></a>
+    </div>
+   </div>
+   <a href="#s-gallery" data-en="Work">Trabajos</a>
+   <a href="#s-process" data-en="Process">Proceso</a>
+   <a href="#s-faq" data-en="FAQ">Preguntas</a>
+   <div class="seg" role="group" aria-label="Ver como">
+    <button type="button" data-aud-set="creador" data-en="Creator">Creador</button>
+    <button type="button" data-aud-set="marca" data-en="Brand">Marca</button>
+   </div>
+  </nav>
+  <button class="lang" id="lang" type="button" aria-label="Cambiar idioma / Change language">EN</button>
+  <a class="btn sm dark callbtn js-call" href="#" data-en="Book a call">Reservar llamada</a>
+  <button class="burger" id="burger" type="button" aria-label="Menú" aria-expanded="false" aria-controls="nav"><i></i></button>
+ </div>
+</header>
+
+<main id="inicio">
+ <!-- HERO -->
+ <section class="band" id="s-hero" style="padding-bottom:0;padding-top:clamp(36px,5vw,72px)">
+  <div class="wrap hero">
+   <div>
+    <h1 data-for="none" data-en="Real content. Creators who grow.">Contenido real. Creadores que crecen.</h1>
+    <h1 data-for="marca" data-en="UGC videos that sell your product.">Vídeos UGC que venden tu producto.</h1>
+    <h1 data-for="creador" data-en="Turn your content into paid work.">Convierte tu contenido en trabajo pagado.</h1>
+    <p class="lead" data-for="none" data-en="A UGC agency for brands and a network + academy for creators. We connect both sides so the content works.">Agencia de contenido UGC para marcas y red + academia para creadores. Conectamos a ambos para que el contenido funcione.</p>
+    <p class="lead" data-for="marca" data-en="We find the right creators, write the scripts and deliver videos ready for ads, social media and product pages.">Encontramos a los creadores adecuados, escribimos los guiones y te entregamos vídeos listos para anuncios, redes y fichas de producto.</p>
+    <p class="lead" data-for="creador" data-en="Learn how to work with brands, build a portfolio that sells and join a network that sends you campaigns.">Aprende a trabajar con marcas, monta un portfolio que vende y entra en una red que te envía campañas.</p>
+    <div class="ctas" data-for="none"><a class="btn" href="#s-brief" data-en="I'm a brand">Soy marca</a><a class="btn ghost" href="#s-join" data-en="I'm a creator">Soy creador/a</a></div>
+    <div class="ctas" data-for="marca"><a class="btn js-call" href="#" data-en="Book a call">Reservar llamada</a><a class="btn ghost" href="#s-gallery" data-en="See examples">Ver ejemplos</a></div>
+    <div class="ctas" data-for="creador"><a class="btn" href="#s-join" data-en="Apply now">Postularme ahora</a><a class="btn ghost" href="academia.html" data-en="See the academy">Ver la academia</a></div>
+    <div class="trust"><span data-en="Spain and Latin America">España y Latinoamérica</span><span data-en="Spanish and English">Español e inglés</span><span data-en="Usage rights agreed up front">Derechos de uso claros desde el inicio</span></div>
+   </div>
+   <div class="hero-side">
+    <p data-for="marca" data-en="Are you a creator? Join the network and the academy.">¿Eres creador/a? Únete a la red y a la academia.</p>
+    <a data-for="marca" href="#" data-aud-link="creador" data-en="Switch to the creator area">Cambiar al área de creadores</a>
+    <p data-for="creador" data-en="Are you a brand? We'll find the right creators for you.">¿Eres una marca? Te encontramos a los creadores adecuados.</p>
+    <a data-for="creador" href="#" data-aud-link="marca" data-en="Switch to the brand area">Cambiar al área de marcas</a>
+    <p data-for="none" data-en="Choose your path and we'll show you what matters to you.">Elige tu camino y te enseñamos lo que te interesa.</p>
+    <a data-for="none" href="#" id="reopen" data-en="Choose: creator or brand">Elegir: creador o marca</a>
+   </div>
+  </div>
+ </section>
+
+ <!-- TIRA DE VÍDEOS -->
+ <section id="s-strip" aria-hidden="true"><div class="strip"><div class="track" id="track"></div></div></section>
+
+ <!-- CIFRAS (se muestra solo si CONFIG.stats tiene datos) -->
+ <section class="band" id="s-stats" style="padding-top:0" hidden><div class="wrap stats" id="stats"></div></section>
+
+ <!-- DOS FORMAS -->
+ <section class="band soft" id="s-ways">
+  <div class="wrap">
+   <div class="head"><h2 data-en="Two ways to work with us">Dos formas de trabajar con nosotros</h2><p class="lead" data-en="Brands get content made for them. Creators get training and campaigns. Same network, same quality bar.">Las marcas reciben contenido hecho a su medida. Los creadores, formación y campañas. La misma red, el mismo nivel de exigencia.</p></div>
+   <div class="ways">
+    <article class="way dark">
+     <span class="who" data-en="For brands">Para marcas</span>
+     <h3 data-en="Managed service">Servicio gestionado</h3>
+     <p class="muted" data-en="We handle everything, from strategy to delivery. You approve creators and scripts; we do the rest.">Nos encargamos de todo, de la estrategia a la entrega. Tú apruebas creadores y guiones; nosotros hacemos el resto.</p>
+     <ul><li data-en="Creator casting">Casting de creadores</li><li data-en="Scripts and hooks">Guiones y hooks</li><li data-en="Review and revisions">Revisión y correcciones</li><li data-en="Ready-to-use files">Archivos listos para publicar</li></ul>
+     <a class="btn" href="#s-brief" data-en="Request a proposal">Pedir propuesta</a>
+    </article>
+    <article class="way">
+     <span class="who" data-en="For creators">Para creadores</span>
+     <h3 data-en="Network + Academy">Red + Academia</h3>
+     <p class="muted" data-en="Train with our method, join the network and receive campaigns that fit your niche.">Fórmate con nuestro método, entra en la red y recibe campañas que encajan con tu nicho.</p>
+     <ul><li data-en="Portfolio review">Revisión de portfolio</li><li data-en="Paid campaigns">Campañas pagadas</li><li data-en="Help with rates and contracts">Ayuda con tarifas y contratos</li><li data-en="Academy with 3 plans">Academia con 3 planes</li></ul>
+     <a class="btn ghost" href="#s-join" data-en="Apply to the network">Postularme a la red</a>
+    </article>
+   </div>
+  </div>
+ </section>
+
+ <!-- LOGOS (solo si CONFIG.logos tiene datos) -->
+ <section class="band" id="s-logos" hidden><div class="wrap"><p class="small" style="text-align:center;margin-bottom:24px" data-en="Brands that trust us">Marcas que confían en nosotros</p><div class="logos" id="logos"></div></div></section>
+
+ <!-- GALERÍA -->
+ <section class="band" id="s-gallery">
+  <div class="wrap">
+   <div class="head"><h2 data-en="Formats we produce">Formatos que producimos</h2><p class="lead" data-en="Filter by sector. Each video is designed for one job: stop the scroll, explain the product or close the sale.">Filtra por sector. Cada vídeo tiene una misión: parar el scroll, explicar el producto o cerrar la venta.</p></div>
+   <div class="chips" id="chips" role="group" aria-label="Sector"></div>
+   <div class="gallery" id="gallery"></div>
+   <p class="small" style="margin-top:22px" data-en="Illustrations: replace them with your real videos when you have them.">Ilustraciones: sustitúyelas por tus vídeos reales cuando los tengas.</p>
+  </div>
+ </section>
+
+ <!-- POR QUÉ -->
+ <section class="band soft" id="s-why">
+  <div class="wrap split">
+   <div><h2 data-en="Why UGC Impulse">Por qué UGC Impulse</h2><p class="lead" style="margin-top:18px" data-en="We train the creators we work with. That means fewer surprises, better scripts and content that looks natural without losing the message.">Formamos a los creadores con los que trabajamos. Eso significa menos sorpresas, mejores guiones y contenido que parece natural sin perder el mensaje.</p></div>
+   <ul class="bul">
+    <li><h3 data-en="Creators vetted one by one">Creadores revisados uno a uno</h3><p class="muted" data-en="Every profile passes a portfolio and on-camera review.">Cada perfil pasa una revisión de portfolio y de cámara.</p></li>
+    <li><h3 data-en="Scripts built to convert">Guiones pensados para convertir</h3><p class="muted" data-en="Hooks, benefits and call to action in the first seconds.">Hook, beneficio y llamada a la acción en los primeros segundos.</p></li>
+    <li><h3 data-en="Clear usage rights">Derechos de uso claros</h3><p class="muted" data-en="Duration, channels and paid use agreed in writing.">Duración, canales y uso en anuncios acordados por escrito.</p></li>
+    <li><h3 data-en="One point of contact">Un único interlocutor</h3><p class="muted" data-en="You talk to us; we coordinate every creator.">Hablas con nosotros; coordinamos a todos los creadores.</p></li>
+   </ul>
+  </div>
+ </section>
+
+ <!-- MÉTODO -->
+ <section class="band" id="s-method">
+  <div class="wrap">
+   <div class="head"><h2 data-en="Our method">Nuestro método</h2><p class="lead" data-en="Five steps we repeat in every campaign so results don't depend on luck.">Cinco pasos que repetimos en cada campaña para que el resultado no dependa de la suerte.</p></div>
+   <ol class="steps" id="method" style="--n:5"></ol>
+  </div>
+ </section>
+
+ <!-- SERVICIOS -->
+ <section class="band soft" id="s-services">
+  <div class="wrap">
+   <div class="head"><h2 data-en="Services">Servicios</h2><p class="lead" data-en="Pick one or combine them. Each campaign gets a closed quote after the brief.">Elige uno o combínalos. Cada campaña recibe un presupuesto cerrado tras el briefing.</p></div>
+   <div class="svc" id="svc"></div>
+  </div>
+ </section>
+
+ <!-- PROCESO -->
+ <section class="band" id="s-process">
+  <div class="wrap">
+   <div class="head"><h2 data-en="From brief to delivery">Del briefing a la entrega</h2><p class="lead" data-en="Indicative timings for a standard campaign. We confirm them in each proposal.">Plazos orientativos para una campaña estándar. Los confirmamos en cada propuesta.</p></div>
+   <ol class="steps" id="process" style="--n:6"></ol>
+   <div style="margin-top:36px"><a class="btn" href="#s-brief" data-en="Start my project">Empezar mi proyecto</a></div>
+  </div>
+ </section>
+
+ <!-- SECTORES -->
+ <section class="band soft" id="s-sectors">
+  <div class="wrap">
+   <div class="head"><h2 data-en="Sectors">Sectores</h2><p class="lead" data-en="Creators with experience in your category. Tap one to see example formats.">Creadores con experiencia en tu categoría. Toca uno para ver formatos de ejemplo.</p></div>
+   <div class="sectors" id="sectors"></div>
+  </div>
+ </section>
+
+ <!-- ACADEMIA -->
+ <section class="band" id="s-academy">
+  <div class="wrap">
+   <div class="head"><h2 data-en="UGC Impulse Academy">Academia UGC Impulse</h2><p class="lead" data-en="An 8-module course to learn UGC and start working with brands. Three plans, depending on how much support you want.">Un curso de 8 módulos para aprender UGC y empezar a trabajar con marcas. Tres planes, según cuánto acompañamiento quieras.</p></div>
+   <div class="plans plans3">
+    <article class="plan">
+     <h3>Esencial</h3>
+     <p class="muted" data-en="The full method, at your own pace.">El método completo, a tu ritmo.</p>
+     <p class="price">149 €</p>
+     <p class="small" data-en="One-off or 3 instalments">Pago único o 3 cuotas</p>
+     <ul><li data-en="8 video modules">8 módulos en vídeo</li><li data-en="Template and script kit">Kit de plantillas y guiones</li><li data-en="1 year of access">1 año de acceso</li></ul>
+     <a class="btn ghost" href="academia.html#precios" data-en="See plan">Ver plan</a>
+    </article>
+    <article class="plan featured">
+     <h3>Pro</h3>
+     <p class="muted" data-en="Mentoring + a real brand project.">Mentoría + proyecto real con marca.</p>
+     <p class="price">599 €</p>
+     <p class="small" style="color:#c3bcd9" data-en="One-off, 3 or 6 instalments">Pago único, 3 o 6 cuotas</p>
+     <ul><li data-en="Everything in Essentials">Todo lo de Esencial</li><li data-en="Mentor and live sessions">Mentor/a y sesiones en directo</li><li data-en="Priority access to network campaigns">Acceso prioritario a campañas de la red</li></ul>
+     <a class="btn" href="academia.html#precios" data-en="See plan">Ver plan</a>
+    </article>
+    <article class="plan">
+     <h3>Pro Plus</h3>
+     <p class="muted" data-en="Pro + 3 private 1:1 sessions.">Pro + 3 asesorías privadas 1:1.</p>
+     <p class="price">849 €</p>
+     <p class="small" data-en="One-off, 3 or 6 instalments">Pago único, 3 o 6 cuotas</p>
+     <ul><li data-en="Everything in Pro">Todo lo de Pro</li><li data-en="Personalised career strategy">Estrategia de carrera personalizada</li><li data-en="Priority support">Soporte prioritario</li></ul>
+     <a class="btn ghost" href="academia.html#precios" data-en="See plan">Ver plan</a>
+    </article>
+   </div>
+   <div class="ctas" style="margin-top:28px"><a class="btn" href="academia.html" data-en="See the full course">Ver el curso completo</a><span class="small" style="align-self:center" data-en="14-day guarantee">Garantía de 14 días</span></div>
+  </div>
+ </section>
+
+ <!-- POSTULACIÓN CREADORES -->
+ <section class="band soft" id="s-join">
+  <div class="wrap split">
+   <div>
+    <h2 data-en="Join the network">Únete a la red</h2>
+    <p class="lead" style="margin:18px 0 28px" data-en="You don't need thousands of followers. Brands look for creators who can tell a product's story on camera.">No necesitas miles de seguidores. Las marcas buscan creadores que sepan contar un producto delante de la cámara.</p>
+    <ul class="perks">
+     <li><h3 data-en="A reviewed profile">Perfil revisado</h3><p class="muted" data-en="Feedback on your portfolio before we introduce you to any brand.">Feedback de tu portfolio antes de presentarte a ninguna marca.</p></li>
+     <li><h3 data-en="Paid campaigns">Campañas pagadas</h3><p class="muted" data-en="Briefs that match your niche and the formats you're best at.">Encargos acordes a tu nicho y a los formatos que mejor se te dan.</p></li>
+     <li><h3 data-en="Support on every job">Acompañamiento en cada encargo</h3><p class="muted" data-en="Clear briefs, script reviews and help with rates and contracts.">Briefings claros, revisión de guiones y ayuda con tarifas y contratos.</p></li>
+    </ul>
+   </div>
+   <form id="unirse" data-kind="creador" novalidate>
+    <h3 data-en="Apply to join the network">Postúlate a la red</h3>
+    <p class="small" data-en="It takes 2 minutes. We reply by email.">Son 2 minutos. Te respondemos por email.</p>
+    <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <div class="grid2">
+     <div><label for="c-name" data-en="Name">Nombre</label><input id="c-name" name="nombre" required autocomplete="name"></div>
+     <div><label for="c-email">Email</label><input id="c-email" name="email" type="email" required autocomplete="email"></div>
+     <div><label for="c-handle" data-en="Instagram or TikTok">Instagram o TikTok</label><input id="c-handle" name="redes" placeholder="@tu.usuario" data-en-ph="@your.handle" required></div>
+     <div><label for="c-port" data-en="Portfolio link">Enlace al portfolio</label><input id="c-port" name="portfolio" type="url" placeholder="https://"></div>
+     <div><label for="c-niche" data-en="Main niche">Nicho principal</label><select id="c-niche" name="nicho" required data-opts="niches"></select></div>
+     <div><label for="c-exp" data-en="Experience">Experiencia</label>
+      <select id="c-exp" name="experiencia" required>
+       <option value="" data-en="Choose one">Elige una</option>
+       <option value="Empezando" data-en="Just starting">Estoy empezando</option>
+       <option value="Menos de 10 colaboraciones" data-en="Fewer than 10 collaborations">Menos de 10 colaboraciones</option>
+       <option value="10 o más colaboraciones" data-en="10 or more collaborations">10 o más colaboraciones</option>
+      </select></div>
+     <div class="full"><label for="c-lang" data-en="Languages you create in">Idiomas en los que creas</label><input id="c-lang" name="idiomas" placeholder="Español, inglés…" data-en-ph="Spanish, English…"></div>
+     <div class="full"><label for="c-msg" data-en="Tell us about yourself">Cuéntanos sobre ti</label><textarea id="c-msg" name="mensaje" placeholder="Qué tipo de contenido haces, con qué marcas te gustaría trabajar…" data-en-ph="What content you make, which brands you'd like to work with…"></textarea></div>
+     <label class="check full"><input type="checkbox" name="privacidad" required><span data-en="I accept the <a href='#privacidad'>privacy policy</a>.">Acepto la <a href="#privacidad">política de privacidad</a>.</span></label>
+    </div>
+    <div class="send"><button class="btn" type="submit" data-en="Send application">Enviar postulación</button><p class="status" role="status" aria-live="polite"></p></div>
+   </form>
+  </div>
+ </section>
+
+ <!-- BRIEFING MARCAS -->
+ <section class="band" id="s-brief">
+  <div class="wrap split">
+   <div>
+    <h2 data-en="Tell us about your campaign">Cuéntanos tu campaña</h2>
+    <p class="lead" style="margin:18px 0 24px" data-en="We'll reply with a creator shortlist and a closed quote. No commitment.">Te respondemos con una selección de creadores y un presupuesto cerrado. Sin compromiso.</p>
+    <p class="muted"><span data-en="Prefer to talk?">¿Prefieres hablarlo?</span> <a class="js-call" href="#" data-en="Book a 20-minute call">Reserva una llamada de 20 minutos</a></p>
+   </div>
+   <form id="briefing" data-kind="marca" novalidate>
+    <h3 data-en="Request a proposal">Pide una propuesta</h3>
+    <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <div class="grid2">
+     <div><label for="b-name" data-en="Name">Nombre</label><input id="b-name" name="nombre" required autocomplete="name"></div>
+     <div><label for="b-co" data-en="Company or brand">Empresa o marca</label><input id="b-co" name="empresa" required autocomplete="organization"></div>
+     <div><label for="b-email">Email</label><input id="b-email" name="email" type="email" required autocomplete="email"></div>
+     <div><label for="b-web">Web</label><input id="b-web" name="web" type="url" placeholder="https://"></div>
+     <div><label for="b-type" data-en="Service">Servicio</label>
+      <select id="b-type" name="servicio" required>
+       <option value="" data-en="Choose one">Elige uno</option>
+       <option value="Contenido UGC" data-en="UGC content">Contenido UGC</option>
+       <option value="Anuncios con UGC" data-en="UGC ads">Anuncios con UGC</option>
+       <option value="TikTok y social commerce" data-en="TikTok and social commerce">TikTok y social commerce</option>
+       <option value="Varios" data-en="Several">Varios</option>
+      </select></div>
+     <div><label for="b-qty" data-en="Approx. number of videos">Nº de vídeos aprox.</label>
+      <select id="b-qty" name="videos" required>
+       <option value="" data-en="Choose one">Elige uno</option>
+       <option value="1-5">1–5</option><option value="6-15">6–15</option><option value="16-30">16–30</option><option value="Más de 30" data-en="More than 30">Más de 30</option>
+      </select></div>
+     <div class="full"><label for="b-sector" data-en="Sector">Sector</label><select id="b-sector" name="sector" data-opts="niches"></select></div>
+     <div class="full"><label for="b-msg" data-en="Brief">Briefing</label><textarea id="b-msg" name="mensaje" placeholder="Producto, público, plataformas, plazos…" data-en-ph="Product, audience, platforms, deadlines…" required></textarea></div>
+     <label class="check full"><input type="checkbox" name="privacidad" required><span data-en="I accept the <a href='#privacidad'>privacy policy</a>.">Acepto la <a href="#privacidad">política de privacidad</a>.</span></label>
+    </div>
+    <div class="send"><button class="btn" type="submit" data-en="Request proposal">Pedir propuesta</button><p class="status" role="status" aria-live="polite"></p></div>
+   </form>
+  </div>
+ </section>
+
+ <!-- EQUIPO (solo si CONFIG.team tiene datos) -->
+ <section class="band soft" id="s-team" hidden><div class="wrap"><div class="head"><h2 data-en="The team">El equipo</h2></div><div class="team" id="team"></div></div></section>
+
+ <!-- FAQ -->
+ <section class="band" id="s-faq">
+  <div class="wrap split">
+   <div><h2 data-en="Frequently asked questions">Preguntas frecuentes</h2><p class="muted" style="margin-top:18px"><span data-en="Something else?">¿Algo más?</span> <a class="js-mail" href="#">info@ugcimpulse.com</a></p></div>
+   <div>
+    <div class="faqtabs" role="group" aria-label="FAQ">
+     <button class="chip" type="button" data-faq-tab="marca" data-en="Brands">Marcas</button>
+     <button class="chip" type="button" data-faq-tab="creador" data-en="Creators">Creadores</button>
+    </div>
+    <div id="faq"></div>
+   </div>
+  </div>
+ </section>
+
+ <!-- RESEÑAS (solo si CONFIG.reviews tiene datos) -->
+ <section class="band soft" id="s-reviews" hidden><div class="wrap"><div class="head"><h2 data-en="What our clients say">Lo que dicen nuestros clientes</h2></div><div class="reviews" id="reviews"></div></div></section>
+
+ <!-- CTA FINAL -->
+ <section class="band cta" id="s-cta">
+  <div class="wrap">
+   <div>
+    <h2 data-en="Shall we talk?">¿Hablamos?</h2>
+    <p data-en="Book 20 minutes and we'll see what your brand needs, or whether you fit the network and the academy.">Reserva 20 minutos y vemos qué necesita tu marca, o si encajas en la red y la academia.</p>
+    <div class="ctas" style="margin-top:26px"><a class="btn js-call" href="#" data-en="Book a call">Reservar llamada</a><a class="btn ghost" href="#s-join" data-en="Join as a creator">Unirme como creador/a</a></div>
+   </div>
+   <ul>
+    <li data-en="Closed quote after the brief">Presupuesto cerrado tras el briefing</li>
+    <li data-en="You approve creators and scripts">Tú apruebas creadores y guiones</li>
+    <li data-en="Usage rights agreed in writing">Derechos de uso acordados por escrito</li>
+   </ul>
+  </div>
+ </section>
+</main>
+
+<footer>
+ <div class="wrap">
+  <div class="fgrid">
+   <div>
+    <a class="logo" href="#inicio"><img src="logo-horizontal.png" alt="UGC Impulse" width="180" height="41"></a>
+    <p class="small" style="margin:14px 0;max-width:34ch" data-en="UGC content for brands. Network and academy for creators.">Contenido UGC para marcas. Red y academia para creadores.</p>
+    <p class="small"><a class="js-mail" href="#">info@ugcimpulse.com</a></p>
+    <p class="small" id="social" style="margin-top:8px"></p>
+   </div>
+   <div><h4 data-en="Services">Servicios</h4><ul><li><a href="#s-services" data-en="UGC content">Contenido UGC</a></li><li><a href="#s-services" data-en="UGC ads">Anuncios con UGC</a></li><li><a href="#s-services" data-en="TikTok and social commerce">TikTok y social commerce</a></li><li><a href="#s-sectors" data-en="Sectors">Sectores</a></li></ul></div>
+   <div><h4 data-en="Creators">Creadores</h4><ul><li><a href="#s-join" data-en="Join the network">Únete a la red</a></li><li><a href="academia.html" data-en="Academy">Academia</a></li><li><a href="#s-faq" data-faq="creador" data-en="Creator FAQ">Preguntas de creadores</a></li></ul></div>
+   <div><h4 data-en="Company">Empresa</h4><ul><li><a href="#s-process" data-en="Process">Proceso</a></li><li><a href="#s-gallery" data-en="Work">Trabajos</a></li><li><a class="js-call" href="#" data-en="Book a call">Reservar llamada</a></li></ul></div>
+   <div><h4>Legal</h4><ul><li><a href="#aviso-legal" data-en="Legal notice">Aviso legal</a></li><li><a href="#privacidad" id="privacidad" data-en="Privacy policy">Política de privacidad</a></li><li><a href="#cookies" data-en="Cookie policy">Política de cookies</a></li></ul></div>
+  </div>
+  <div class="fbase small"><span>© <span id="yr">2026</span> UGC Impulse</span><span data-en="Spain · Spanish and English">España · Español e inglés</span></div>
+ </div>
+</footer>
+
+<script>
+{
+/* ================= AJUSTES: cambia estos valores ================= */
+const CONFIG = {
+  email: 'info@ugcimpulse.com',
+  callUrl: 'https://calendly.com/TU-USUARIO/20min',      // enlace de reservas
+  courseUrl: 'https://TU-PASARELA-DE-PAGO/curso-ugc',    // pago del curso (Stripe, Hotmart…)
+  formEndpoint: 'https://formsubmit.co/ajax/info@ugcimpulse.com',
+  social: { Instagram: '', TikTok: '', LinkedIn: '' },   // pon tus URLs; vacías no se muestran
+  // Secciones que aparecen solo cuando tengan datos REALES:
+  stats: [],   // ej.: { n: '120+', es: 'creadores en la red', en: 'creators in the network' }
+  logos: [],   // ej.: { name: 'Marca', img: 'logos/marca.svg' }  (img opcional)
+  team: [],    // ej.: { name: 'Nombre', es: 'Fundadora', en: 'Founder', img: 'equipo/nombre.jpg' }
+  reviews: []  // ej.: { who: 'Nombre, Empresa', es: 'Texto de la reseña', en: 'Review text' }
+};
+/* ================================================================== */
+
+const L = () => document.documentElement.lang === 'en' ? 'en' : 'es';
+const tx = o => o[L()];
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+const SECTORS = [
+  { id: 'belleza', es: 'Belleza y skincare', en: 'Beauty and skincare', d: { es: 'Rutinas, texturas, antes y después', en: 'Routines, textures, before and after' } },
+  { id: 'comida', es: 'Comida y bebida', en: 'Food and drink', d: { es: 'Recetas, catas, primeras reacciones', en: 'Recipes, tastings, first reactions' } },
+  { id: 'tecnologia', es: 'Tecnología', en: 'Tech', d: { es: 'Unboxing, tutoriales, comparativas', en: 'Unboxings, tutorials, comparisons' } },
+  { id: 'hogar', es: 'Hogar y decoración', en: 'Home and decor', d: { es: 'Transformaciones y uso real', en: 'Makeovers and real use' } },
+  { id: 'moda', es: 'Moda', en: 'Fashion', d: { es: 'Try-on, outfits, tallas', en: 'Try-ons, outfits, sizing' } },
+  { id: 'fitness', es: 'Fitness y bienestar', en: 'Fitness and wellbeing', d: { es: 'Rutinas y hábitos', en: 'Routines and habits' } },
+  { id: 'mascotas', es: 'Mascotas', en: 'Pets', d: { es: 'Producto en acción', en: 'Product in action' } },
+  { id: 'viajes', es: 'Viajes y experiencias', en: 'Travel and experiences', d: { es: 'Reseñas en primera persona', en: 'First-person reviews' } }
+];
+const VIDEOS = [
+  { s: 'belleza', k: 'bottle', c: ['#fff4e0', '#fbd9a6'], f: { es: 'Antes y después', en: 'Before and after' }, cap: { es: 'mi piel en 4 semanas', en: 'my skin in 4 weeks' } },
+  { s: 'comida', k: 'cup', c: ['#2a2f3a', '#11141b'], f: { es: 'Rutina', en: 'Routine' }, cap: { es: 'mi café de cada mañana', en: 'my coffee every morning' } },
+  { s: 'hogar', k: 'box', c: ['#f6f4fa', '#ddd8e8'], f: { es: 'Unboxing', en: 'Unboxing' }, cap: { es: 'unboxing sin filtros', en: 'unfiltered unboxing' } },
+  { s: 'tecnologia', k: 'phone', c: ['#dfe6f5', '#b7c4e3'], f: { es: 'Tutorial', en: 'Tutorial' }, cap: { es: 'cómo lo uso en 30 s', en: 'how I use it in 30 s' } },
+  { s: 'moda', k: 'shirt', c: ['#fdeee8', '#f3c9b8'], f: { es: 'Try-on', en: 'Try-on' }, cap: { es: '3 formas de llevarlo', en: '3 ways to wear it' } },
+  { s: 'fitness', k: 'weight', c: ['#e6f1ec', '#bfd9cc'], f: { es: 'Testimonio', en: 'Testimonial' }, cap: { es: 'lo que nadie te cuenta', en: 'what nobody tells you' } },
+  { s: 'belleza', k: 'bottle', c: ['#fbeee6', '#f0cdb8'], f: { es: 'Reseña', en: 'Review' }, cap: { es: 'mi opinión sincera', en: 'my honest opinion' } },
+  { s: 'tecnologia', k: 'phone', c: ['#2a2f3a', '#11141b'], f: { es: 'Hook para anuncio', en: 'Ad hook' }, cap: { es: 'para de hacer esto', en: 'stop doing this' } },
+  { s: 'comida', k: 'cup', c: ['#f7efe4', '#e6d3bb'], f: { es: 'Primera reacción', en: 'First reaction' }, cap: { es: 'lo pruebo por primera vez', en: 'trying it for the first time' } }
+];
+const METHOD = [
+  { es: 'Estrategia', en: 'Strategy', d: { es: 'Objetivo, público y plataforma antes de grabar nada.', en: 'Goal, audience and platform before anything is filmed.' } },
+  { es: 'Guiones y hooks', en: 'Scripts and hooks', d: { es: 'Varias aperturas por vídeo para poder testear.', en: 'Several openings per video so you can test.' } },
+  { es: 'Casting', en: 'Casting', d: { es: 'Creadores de la red que encajan con tu marca.', en: 'Network creators that fit your brand.' } },
+  { es: 'Producción y revisión', en: 'Production and review', d: { es: 'Revisamos cada vídeo antes de entregarlo.', en: 'We review every video before delivery.' } },
+  { es: 'Medición', en: 'Measurement', d: { es: 'Vemos qué funciona y lo repetimos.', en: 'We see what works and do more of it.' } }
+];
+const PROCESS = [
+  { es: 'Briefing', en: 'Brief', w: { es: 'Día 1', en: 'Day 1' }, d: { es: 'Llamada o formulario con tu objetivo.', en: 'A call or form with your goal.' } },
+  { es: 'Propuesta', en: 'Proposal', w: { es: 'Días 2–3', en: 'Days 2–3' }, d: { es: 'Creadores, formatos y presupuesto.', en: 'Creators, formats and quote.' } },
+  { es: 'Guiones', en: 'Scripts', w: { es: 'Días 3–5', en: 'Days 3–5' }, d: { es: 'Los apruebas antes de grabar.', en: 'You approve them before filming.' } },
+  { es: 'Envío de producto', en: 'Product shipping', w: { es: 'Días 5–8', en: 'Days 5–8' }, d: { es: 'Coordinamos la logística.', en: 'We coordinate logistics.' } },
+  { es: 'Grabación', en: 'Filming', w: { es: 'Días 8–14', en: 'Days 8–14' }, d: { es: 'Los creadores graban y revisamos.', en: 'Creators film and we review.' } },
+  { es: 'Entrega', en: 'Delivery', w: { es: 'Días 14–18', en: 'Days 14–18' }, d: { es: 'Archivos finales y una ronda de cambios.', en: 'Final files and one round of edits.' } }
+];
+const SERVICES = [
+  { es: 'Contenido UGC', en: 'UGC content', d: { es: 'Vídeos naturales para redes, web y fichas de producto.', en: 'Natural videos for social, web and product pages.' }, i: [{ es: 'Testimonios', en: 'Testimonials' }, { es: 'Unboxing', en: 'Unboxings' }, { es: 'Tutoriales', en: 'Tutorials' }, { es: 'Reseñas', en: 'Reviews' }] },
+  { es: 'Anuncios con UGC', en: 'UGC ads', d: { es: 'Creatividades de respuesta directa para campañas de pago.', en: 'Direct-response creatives for paid campaigns.' }, i: [{ es: 'Hooks y variantes', en: 'Hooks and variants' }, { es: 'Meta Ads', en: 'Meta Ads' }, { es: 'TikTok Ads', en: 'TikTok Ads' }, { es: 'Formatos para test A/B', en: 'A/B test formats' }] },
+  { es: 'TikTok y social commerce', en: 'TikTok and social commerce', d: { es: 'Contenido pensado para vender dentro de la plataforma.', en: 'Content built to sell inside the platform.' }, i: [{ es: 'Vídeos para TikTok Shop', en: 'TikTok Shop videos' }, { es: 'Creadores afiliados', en: 'Affiliate creators' }, { es: 'Contenido para fichas', en: 'Product page content' }, { es: 'Series recurrentes', en: 'Recurring series' }] }
+];
+const FAQ = {
+  marca: [
+    { q: { es: '¿Qué es el contenido UGC?', en: 'What is UGC content?' }, a: { es: 'Vídeos grabados por creadores reales con el estilo de una recomendación personal. La marca los publica en sus canales o los usa en anuncios.', en: 'Videos filmed by real creators in the style of a personal recommendation. The brand publishes them on its channels or uses them in ads.' } },
+    { q: { es: '¿Cuánto cuesta?', en: 'How much does it cost?' }, a: { es: 'Depende del número de vídeos, los formatos y los derechos de uso. Tras el briefing te enviamos un presupuesto cerrado.', en: 'It depends on the number of videos, formats and usage rights. After the brief we send you a closed quote.' } },
+    { q: { es: '¿Cuánto se tarda?', en: 'How long does it take?' }, a: { es: 'Una campaña estándar suele estar lista en 2–3 semanas desde el briefing. Lo confirmamos en cada propuesta.', en: 'A standard campaign is usually ready 2–3 weeks after the brief. We confirm it in each proposal.' } },
+    { q: { es: '¿Cómo controláis la calidad?', en: 'How do you control quality?' }, a: { es: 'Formamos a los creadores, aprobamos guiones contigo y revisamos cada vídeo antes de entregarlo. Incluimos una ronda de cambios.', en: 'We train creators, approve scripts with you and review every video before delivery. One round of edits is included.' } },
+    { q: { es: '¿Para qué plataformas?', en: 'Which platforms?' }, a: { es: 'TikTok, Instagram, YouTube Shorts, Meta Ads, tu web y marketplaces. Entregamos en los formatos que necesites.', en: 'TikTok, Instagram, YouTube Shorts, Meta Ads, your website and marketplaces. We deliver in the formats you need.' } },
+    { q: { es: '¿Puedo elegir a los creadores?', en: 'Can I choose the creators?' }, a: { es: 'Sí. Te proponemos perfiles de la red y tú decides con quién trabajar.', en: 'Yes. We suggest profiles from the network and you decide who to work with.' } }
+  ],
+  creador: [
+    { q: { es: '¿Necesito muchos seguidores?', en: 'Do I need lots of followers?' }, a: { es: 'No. En UGC la marca publica el contenido en sus propios canales, así que cuenta la calidad de tus vídeos, no tu audiencia.', en: 'No. In UGC the brand publishes the content on its own channels, so the quality of your videos matters, not your audience.' } },
+    { q: { es: '¿Cuesta algo postularse a la red?', en: 'Does it cost anything to apply?' }, a: { es: 'No, postularse es gratis. La academia es un producto aparte y opcional.', en: 'No, applying is free. The academy is a separate, optional product.' } },
+    { q: { es: '¿De quién son los derechos del contenido?', en: 'Who owns the content?' }, a: { es: 'Los derechos de uso (duración, canales, anuncios) se acuerdan por escrito en cada campaña antes de grabar.', en: 'Usage rights (duration, channels, ads) are agreed in writing for each campaign before filming.' } },
+    { q: { es: '¿Trabajáis con creadores de fuera de España?', en: 'Do you work with creators outside Spain?' }, a: { es: 'Sí. Trabajamos en español e inglés, con creadores de España, Latinoamérica y otros mercados.', en: 'Yes. We work in Spanish and English, with creators in Spain, Latin America and other markets.' } },
+    { q: { es: '¿Cuánto dura el curso?', en: 'How long is the course?' }, a: { es: 'Esencial lo haces a tu ritmo, con 1 año de acceso. Pro y Pro Plus son programas de 2 meses.', en: 'Essentials is self-paced, with 1 year of access. Pro and Pro Plus are 2-month programmes.' } }
+  ]
+};
+
+/* escenas ilustradas de los vídeos */
+let gid = 0;
+const scene = (k, c) => {
+  const id = 'sg' + (gid++);
+  const shapes = {
+    bottle: '<ellipse cx="90" cy="232" rx="58" ry="10" fill="#000" opacity=".12"/><rect x="66" y="112" width="48" height="118" rx="12" fill="#fff"/><rect x="74" y="88" width="32" height="28" rx="6" fill="#2a2f3a"/><rect x="74" y="150" width="32" height="34" rx="4" fill="#fde3b8"/>',
+    cup: '<rect y="236" width="180" height="84" fill="#000" opacity=".25"/><path d="M48 150h80l-8 86a8 8 0 0 1-8 7H64a8 8 0 0 1-8-7z" fill="#f4efe9"/><path d="M128 168c18 0 20 34 0 36" fill="none" stroke="#f4efe9" stroke-width="9"/><ellipse cx="88" cy="152" rx="40" ry="8" fill="#6b4a33"/><path d="M76 132c-6-10 6-14 0-26M96 130c-6-10 6-14 0-26" fill="none" stroke="#fff" stroke-opacity=".4" stroke-width="3" stroke-linecap="round"/>',
+    box: '<path d="M30 150l60-26 60 26v78l-60 26-60-26z" fill="#c7a98a"/><path d="M30 150l60 26 60-26-60-26z" fill="#dcc1a5"/><path d="M90 176v78l-60-26v-78z" fill="#b89474"/><path d="M30 150l-14 22 60 26 14-22zM150 150l14 22-60 26-14-22z" fill="#e8d3bd"/><rect x="70" y="96" width="40" height="40" rx="8" fill="#11141b" transform="rotate(-12 90 116)"/><circle cx="90" cy="116" r="7" fill="#ff3b30"/>',
+    phone: '<ellipse cx="90" cy="226" rx="50" ry="8" fill="#000" opacity=".15"/><rect x="58" y="92" width="64" height="128" rx="12" fill="#11141b"/><rect x="63" y="100" width="54" height="106" rx="6" fill="#f7891c"/><circle cx="90" cy="153" r="14" fill="#fff" opacity=".85"/><path d="M86 146l10 7-10 7z" fill="#11141b"/>',
+    shirt: '<path d="M60 100l20-10h20l20 10 18 26-18 10v88H60v-88l-18-10z" fill="#fff"/><path d="M80 90c2 10 18 10 20 0" fill="none" stroke="#f3c9b8" stroke-width="4"/><rect x="60" y="182" width="60" height="6" fill="#f3c9b8"/>',
+    weight: '<ellipse cx="90" cy="214" rx="64" ry="9" fill="#000" opacity=".12"/><rect x="50" y="160" width="80" height="12" rx="6" fill="#2a2f3a"/><rect x="34" y="136" width="22" height="60" rx="8" fill="#11141b"/><rect x="124" y="136" width="22" height="60" rx="8" fill="#11141b"/><rect x="22" y="146" width="14" height="40" rx="6" fill="#2a2f3a"/><rect x="144" y="146" width="14" height="40" rx="6" fill="#2a2f3a"/>'
+  };
+  return `<svg viewBox="0 0 180 320" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c[0]}"/><stop offset="1" stop-color="${c[1]}"/></linearGradient></defs><rect width="180" height="320" fill="url(#${id})"/>${shapes[k]}</svg>`;
+};
+const phone = (v, i, tag) => `<div class="phone">${scene(v.k, v.c)}<div class="rec"><i></i>REC 00:${String(8 + i * 7 % 50).padStart(2, '0')}</div>${tag ? `<div class="tag">${esc(tx(v.f))}</div>` : ''}<div class="cap"><span>${esc(tx(v.cap))}</span></div><div class="handle">@tu.nombre</div></div>`;
+
+let filter = 'todos';
+const render = () => {
+  const lang = L();
+  document.getElementById('track').innerHTML = [...VIDEOS, ...VIDEOS].map((v, i) => phone(v, i, true)).join('');
+  document.getElementById('chips').innerHTML = [{ id: 'todos', es: 'Todos', en: 'All' }, ...SECTORS].map(s => `<button class="chip" type="button" data-f="${s.id}" aria-pressed="${s.id === filter}">${esc(s[lang])}</button>`).join('');
+  const vids = VIDEOS.filter(v => filter === 'todos' || v.s === filter);
+  document.getElementById('gallery').innerHTML = vids.length
+    ? vids.map((v, i) => `<figure>${phone(v, i, false)}<figcaption><b>${esc(tx(v.f))}</b>${esc(SECTORS.find(s => s.id === v.s)[lang])}</figcaption></figure>`).join('')
+    : `<p class="empty">${lang === 'en' ? 'We will add examples for this sector soon. ' : 'Pronto añadiremos ejemplos de este sector. '}<a href="#s-brief">${lang === 'en' ? 'Ask us about it' : 'Pregúntanos'}</a></p>`;
+  document.getElementById('method').innerHTML = METHOD.map(m => `<li><h3>${esc(m[lang])}</h3><p class="muted">${esc(tx(m.d))}</p></li>`).join('');
+  document.getElementById('process').innerHTML = PROCESS.map(m => `<li><span class="when">${esc(tx(m.w))}</span><h3>${esc(m[lang])}</h3><p class="muted">${esc(tx(m.d))}</p></li>`).join('');
+  document.getElementById('svc').innerHTML = SERVICES.map(s => `<article><h3>${esc(s[lang])}</h3><p class="muted">${esc(tx(s.d))}</p><ul>${s.i.map(x => `<li>${esc(tx(x))}</li>`).join('')}</ul><a class="btn ghost sm" style="align-self:flex-start;margin-top:auto" href="#s-brief">${lang === 'en' ? 'Request a proposal' : 'Pedir propuesta'}</a></article>`).join('');
+  document.getElementById('sectors').innerHTML = SECTORS.map(s => `<button type="button" data-goto="${s.id}">${esc(s[lang])}<small>${esc(tx(s.d))}</small></button>`).join('');
+  for (const sel of document.querySelectorAll('select[data-opts=niches]')) {
+    const v = sel.value;
+    sel.innerHTML = `<option value="">${lang === 'en' ? 'Choose one' : 'Elige uno'}</option>` + SECTORS.map(s => `<option value="${esc(s.es)}">${esc(s[lang])}</option>`).join('') + `<option value="Otro">${lang === 'en' ? 'Other' : 'Otro'}</option>`;
+    sel.value = v;
+  }
+  renderFaq();
+  const st = CONFIG.stats, lo = CONFIG.logos, te = CONFIG.team, re = CONFIG.reviews;
+  document.getElementById('s-stats').hidden = !st.length;
+  document.getElementById('stats').innerHTML = st.map(s => `<div><b>${esc(s.n)}</b><span class="muted">${esc(s[lang])}</span></div>`).join('');
+  document.getElementById('s-logos').hidden = !lo.length;
+  document.getElementById('logos').innerHTML = lo.map(l => l.img ? `<img src="${esc(l.img)}" alt="${esc(l.name)}">` : `<span>${esc(l.name)}</span>`).join('');
+  document.getElementById('s-team').hidden = !te.length;
+  document.getElementById('team').innerHTML = te.map(p => `<figure>${p.img ? `<img src="${esc(p.img)}" alt="${esc(p.name)}">` : ''}<figcaption style="margin-top:12px"><b>${esc(p.name)}</b><br><span class="muted">${esc(p[lang])}</span></figcaption></figure>`).join('');
+  document.getElementById('s-reviews').hidden = !re.length;
+  document.getElementById('reviews').innerHTML = re.map(r => `<blockquote><p>${esc(r[lang])}</p><cite>${esc(r.who)}</cite></blockquote>`).join('');
+};
+let faqTab = 'marca';
+const renderFaq = () => {
+  document.getElementById('faq').innerHTML = FAQ[faqTab].map(f => `<details><summary>${esc(tx(f.q))}</summary><p>${esc(tx(f.a))}</p></details>`).join('');
+  for (const b of document.querySelectorAll('[data-faq-tab]')) b.setAttribute('aria-pressed', b.dataset.faqTab === faqTab);
+};
+
+/* enlaces de configuración */
+document.getElementById('yr').textContent = new Date().getFullYear();
+for (const a of document.querySelectorAll('.js-call')) { a.href = CONFIG.callUrl; a.target = '_blank'; a.rel = 'noopener'; }
+for (const a of document.querySelectorAll('.js-course')) { a.href = CONFIG.courseUrl; a.target = '_blank'; a.rel = 'noopener'; }
+for (const a of document.querySelectorAll('.js-mail')) { a.href = 'mailto:' + CONFIG.email; a.textContent = CONFIG.email; }
+document.getElementById('social').innerHTML = Object.entries(CONFIG.social).filter(([, u]) => u).map(([n, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a>`).join(' · ');
+
+/* idioma */
+const langBtn = document.getElementById('lang');
+const setLang = l => {
+  document.documentElement.lang = l;
+  for (const el of document.querySelectorAll('[data-en]')) {
+    if (el.dataset.es === undefined) el.dataset.es = el.innerHTML;
+    el.innerHTML = l === 'en' ? el.dataset.en : el.dataset.es;
+  }
+  for (const el of document.querySelectorAll('[data-en-ph]')) {
+    if (el.dataset.esPh === undefined) el.dataset.esPh = el.placeholder;
+    el.placeholder = l === 'en' ? el.dataset.enPh : el.dataset.esPh;
+  }
+  langBtn.textContent = l === 'en' ? 'ES' : 'EN';
+  try { localStorage.setItem('ugci-lang', l); } catch (e) {}
+  render();
+};
+langBtn.addEventListener('click', () => setLang(L() === 'en' ? 'es' : 'en'));
+
+/* público: creador / marca */
+const pop = document.getElementById('pop');
+let lastFocus = null;
+const openPop = () => { lastFocus = document.activeElement; pop.hidden = false; document.body.classList.add('lock'); pop.querySelector('.choice').focus(); };
+const closePop = () => { pop.hidden = true; document.body.classList.remove('lock'); if (lastFocus) lastFocus.focus(); try { sessionStorage.setItem('ugci-pop', '1'); } catch (e) {} };
+const setAud = (a, scroll) => {
+  document.body.dataset.aud = a;
+  faqTab = a; renderFaq();
+  try { localStorage.setItem('ugci-aud', a); } catch (e) {}
+  if (scroll) window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-aud-set],[data-aud-link],[data-close],#reopen,[data-f],[data-goto],[data-faq-tab],[data-faq],.dd>button,.nav a');
+  if (!t) return;
+  if (t.dataset.audSet) { setAud(t.dataset.audSet, !pop.hidden); if (!pop.hidden) closePop(); closeNav(); }
+  else if (t.dataset.audLink) { e.preventDefault(); setAud(t.dataset.audLink, true); }
+  else if (t.hasAttribute('data-close')) closePop();
+  else if (t.id === 'reopen') { e.preventDefault(); openPop(); }
+  else if (t.dataset.f) { filter = t.dataset.f; render(); }
+  else if (t.dataset.goto) { filter = t.dataset.goto; render(); document.getElementById('s-gallery').scrollIntoView({ behavior: 'smooth' }); }
+  else if (t.dataset.faqTab) { faqTab = t.dataset.faqTab; renderFaq(); }
+  else if (t.matches('.dd>button')) t.parentElement.classList.toggle('open');
+  if (t.dataset.faq) { faqTab = t.dataset.faq; renderFaq(); }
+  if (t.matches('.nav a')) closeNav();
+});
+pop.addEventListener('click', e => { if (e.target === pop) closePop(); });
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && !pop.hidden) closePop();
+  if (e.key === 'Tab' && !pop.hidden) {
+    const f = [...pop.querySelectorAll('button')]; const i = f.indexOf(document.activeElement);
+    if (e.shiftKey && i <= 0) { e.preventDefault(); f[f.length - 1].focus(); }
+    else if (!e.shiftKey && i === f.length - 1) { e.preventDefault(); f[0].focus(); }
+  }
+});
+
+/* menú móvil */
+const nav = document.getElementById('nav'), burger = document.getElementById('burger');
+const closeNav = () => { nav.classList.remove('open'); burger.setAttribute('aria-expanded', 'false'); };
+burger.addEventListener('click', () => { const o = nav.classList.toggle('open'); burger.setAttribute('aria-expanded', o); });
+
+/* formularios */
+const T = {
+  es: { sending: 'Enviando…', ok: 'Recibido. Te escribiremos pronto.', bad: 'Revisa los campos marcados.', err: 'No se pudo enviar. Escríbenos a ' },
+  en: { sending: 'Sending…', ok: 'Received. We\'ll be in touch soon.', bad: 'Please check the highlighted fields.', err: 'Couldn\'t send it. Email us at ' }
+};
+for (const form of document.querySelectorAll('form[data-kind]')) {
+  form.addEventListener('submit', async ev => {
+    ev.preventDefault();
+    const t = T[L()], status = form.querySelector('.status'), submit = form.querySelector('button[type=submit]');
+    status.className = 'status';
+    if (!form.checkValidity()) { form.reportValidity(); status.textContent = t.bad; status.classList.add('err'); return; }
+    const fd = new FormData(form);
+    fd.append('_subject', form.dataset.kind === 'marca' ? 'Nueva solicitud de marca · UGC Impulse' : 'Nueva postulación de creador · UGC Impulse');
+    fd.append('_template', 'table');
+    fd.append('idioma_web', L());
+    submit.disabled = true; status.textContent = t.sending;
+    try {
+      const r = await fetch(CONFIG.formEndpoint, { method: 'POST', headers: { Accept: 'application/json' }, body: fd });
+      if (!r.ok) throw new Error(r.status);
+      form.reset(); status.textContent = t.ok; status.classList.add('ok');
+    } catch (e) {
+      status.textContent = t.err + CONFIG.email; status.classList.add('err');
+    } finally { submit.disabled = false; }
+  });
+}
+
+/* arranque */
+let lang0 = 'es', aud0 = null, seen = false;
+try {
+  lang0 = localStorage.getItem('ugci-lang') || ((navigator.language || 'es').toLowerCase().startsWith('es') ? 'es' : 'en');
+  aud0 = localStorage.getItem('ugci-aud');
+  seen = sessionStorage.getItem('ugci-pop') === '1';
+} catch (e) {}
+if (location.hash === '#en') lang0 = 'en';
+if (location.hash === '#marcas') aud0 = 'marca';
+if (location.hash === '#creadores') aud0 = 'creador';
+if (lang0 === 'en') setLang('en'); else render();
+if (aud0 === 'marca' || aud0 === 'creador') setAud(aud0, false);
+else if (!seen) openPop();
+}
+</script>
+</body>
+</html>

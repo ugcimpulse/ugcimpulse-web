@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Academia UGC Impulse</title>
+<meta name="description" content="Curso UGC de UGC Impulse: 8 módulos para aprender a crear contenido UGC y trabajar con marcas. Planes Esencial, Pro y Pro Plus.">
+<meta property="og:title" content="Academia UGC Impulse · Curso para creadores UGC">
+<meta property="og:url" content="https://ugcimpulse.com/academia.html">
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+/* academy page */
+.crumb{font-size:14px;color:var(--mute);margin-bottom:22px}
+.crumb a{text-decoration:none}.crumb a:hover{text-decoration:underline}
+.ahero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:40px 64px;align-items:center}
+.ahero .lead{margin:22px 0 26px}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.facts span{font-size:14px;font-weight:500;border:1px solid var(--line);border-radius:999px;padding:6px 14px;white-space:nowrap}
+.cover{position:relative;aspect-ratio:4/5;border-radius:28px;background:radial-gradient(420px 320px at 90% 0%,rgba(249,196,37,.45),transparent 70%),radial-gradient(380px 300px at 0% 100%,rgba(238,58,34,.35),transparent 70%),#11141b;overflow:hidden;display:grid;place-items:center}
+.cover .phone{width:46%;position:absolute}
+.cover .phone:first-child{transform:translate(-38%,6%) rotate(-6deg)}
+.cover .phone:last-child{transform:translate(38%,-6%) rotate(6deg)}
+.cover .lbl{position:absolute;left:22px;bottom:20px;color:#f2f0f7;font:600 15px "Instrument Sans",sans-serif;display:flex;align-items:center;gap:8px}
+.summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-block:1px solid var(--line)}
+.summary a{display:block;padding:22px 20px;text-decoration:none;border-left:1px solid var(--line)}
+.summary a:first-child{border-left:0;padding-left:0}
+.summary b{display:block;font:700 26px/1.1 "Familjen Grotesk",sans-serif}
+.summary span{font-size:14px;color:var(--mute)}
+.mods{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px;counter-reset:m}
+.mods details{counter-increment:m}
+.mods summary{display:grid;grid-template-columns:44px minmax(0,1fr);gap:4px 12px;padding-right:40px}
+.mods summary::before{content:counter(m,decimal-leading-zero);font:700 18px/1.2 "Familjen Grotesk",sans-serif;color:var(--ot);grid-row:span 2}
+.mods summary small{font:400 15px/1.45 "Instrument Sans",sans-serif;color:var(--mute)}
+.mods ul{margin:0 0 20px 56px;padding-left:18px;color:var(--mute);display:grid;gap:4px}
+.plans3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
+.plan .badge{align-self:flex-start;font-size:13px;font-weight:600;border-radius:999px;padding:4px 12px;background:var(--soft)}
+
+.plan .tagline{font-weight:500}
+.plan .pay{font-size:14px;margin-top:-6px}
+.plan .acts{margin-top:auto;display:flex;flex-direction:column;gap:10px}
+.plan .acts .btn{margin:0;align-self:stretch}
+.plan.featured .btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
+.plan .plus{font-weight:600;font-size:14px}
+.guar{display:flex;flex-wrap:wrap;gap:12px 40px;margin-top:28px;padding-top:22px;border-top:1px solid var(--line);font-size:15px;color:var(--mute)}
+.guar b{color:var(--ink)}
+.four{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.four article{border-top:2px solid var(--line);padding-top:18px}
+.four h3{margin-bottom:8px;font-size:19px}
+.box{display:grid;grid-template-columns:minmax(0,1.3fr) auto;gap:20px 40px;align-items:center;border:1px solid var(--line);border-radius:24px;padding:clamp(24px,3vw,40px);background:var(--bg)}
+@media(max-width:1020px){.ahero,.box{grid-template-columns:minmax(0,1fr)}.plans3{grid-template-columns:minmax(0,1fr)}.four,.summary{grid-template-columns:repeat(2,minmax(0,1fr))}.summary a:nth-child(3){border-left:0;padding-left:0}.mods{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:640px){.four{grid-template-columns:minmax(0,1fr)}.cover{aspect-ratio:1/1}.mods ul{margin-left:0}}
+
+.ahero-wrap{position:relative;isolation:isolate}
+.ahero-wrap::before{content:"";position:absolute;inset:-80px -5vw 0;z-index:-1;pointer-events:none;background:linear-gradient(rgba(17,20,27,.05) 1px,transparent 1px) 0 0/56px 56px,linear-gradient(90deg,rgba(17,20,27,.05) 1px,transparent 1px) 0 0/56px 56px;-webkit-mask-image:radial-gradient(ellipse at 30% 20%,#000 30%,transparent 75%);mask-image:radial-gradient(ellipse at 30% 20%,#000 30%,transparent 75%)}
+</style>
+</head>
+<body>
+
+<header class="top">
+ <div class="wrap">
+  <a class="logo" href="index.html"><img src="logo-horizontal.png" alt="UGC Impulse" width="180" height="41"></a>
+  <nav class="nav" id="nav" aria-label="Principal">
+   <a href="#modulos" data-en="Modules">Módulos</a>
+   <a href="#precios" data-en="Pricing">Precios</a>
+   <a href="#para-ti" data-en="Who it's for">Para quién</a>
+   <a href="#faq" data-en="FAQ">Preguntas</a>
+   <a href="index.html" data-en="Back to UGC Impulse">Volver a UGC Impulse</a>
+  </nav>
+  <button class="lang" id="lang" type="button" aria-label="Cambiar idioma / Change language">EN</button>
+  <a class="btn sm dark callbtn" href="#precios" data-en="See plans">Ver planes</a>
+  <button class="burger" id="burger" type="button" aria-label="Menú" aria-expanded="false" aria-controls="nav"><i></i></button>
+ </div>
+</header>
+
+<main>
+ <!-- HERO -->
+ <section class="band" style="padding-top:clamp(28px,4vw,56px)">
+  <div class="wrap ahero-wrap">
+   <nav class="crumb" aria-label="Ruta"><a href="index.html" data-en="Home">Inicio</a> / <a href="index.html#s-academy" data-en="Academy">Academia</a> / <span data-en="UGC course">Curso UGC</span></nav>
+   <div class="ahero">
+    <div>
+     <h1 data-en="Learn UGC and start working with brands.">Aprende UGC y empieza a trabajar con marcas.</h1>
+     <p class="lead" data-en="A complete method to create content that sells, build a portfolio and land paying clients. Online, at your own pace, with templates you can use from day one.">Un método completo para crear contenido que vende, montar tu portfolio y conseguir clientes que pagan. Online, a tu ritmo y con plantillas que usarás desde el primer día.</p>
+     <div class="facts">
+      <span data-en="8 modules">8 módulos</span><span data-en="Video lessons">Clases en vídeo</span><span data-en="At your own pace">A tu ritmo</span><span data-en="Template kit">Kit de plantillas</span><span data-en="Certificate (Pro)">Certificado (Pro)</span>
+     </div>
+     <div class="ctas"><a class="btn" href="#precios" data-en="See the plans">Ver los planes</a><a class="btn ghost" href="#modulos" data-en="See the modules">Ver los módulos</a></div>
+    </div>
+    <div class="cover" aria-hidden="true" id="cover"><div class="lbl"><img src="logo-horizontal-blanco.png" alt="" style="height:26px;width:auto"><span data-en="Academy">Academia</span></div></div>
+   </div>
+  </div>
+ </section>
+
+ <!-- RESUMEN -->
+ <section class="band" style="padding-block:0">
+  <div class="wrap summary">
+   <a href="#modulos"><b data-en="8 modules">8 módulos</b><span data-en="From zero to first client">De cero a tu primer cliente</span></a>
+   <a href="#precios"><b>149 €</b><span data-en="Essentials · self-paced">Esencial · a tu ritmo</span></a>
+   <a href="#precios"><b>599 €</b><span data-en="Pro · mentoring + real project">Pro · mentoría + proyecto real</span></a>
+   <a href="#precios"><b>849 €</b><span data-en="Pro Plus · + 3 private sessions">Pro Plus · + 3 asesorías 1:1</span></a>
+  </div>
+ </section>
+
+ <!-- MÓDULOS -->
+ <section class="band" id="modulos">
+  <div class="wrap">
+   <div class="head"><h2 data-en="What's in the course">Qué incluye el curso</h2><p class="lead" data-en="Eight modules in the order you'll need them. Open each one to see what it covers.">Ocho módulos en el orden en que los vas a necesitar. Abre cada uno para ver qué cubre.</p></div>
+   <div class="mods" id="mods"></div>
+  </div>
+ </section>
+
+ <!-- PRECIOS -->
+ <section class="band soft" id="precios">
+  <div class="wrap">
+   <div class="head"><h2 data-en="Choose your plan">Elige tu plan</h2><p class="lead" data-en="All plans include the full course. The difference is how much support you get along the way.">Todos los planes incluyen el curso completo. La diferencia es cuánto acompañamiento tienes por el camino.</p></div>
+   <div class="plans3">
+    <article class="plan">
+     <span class="badge" data-en="To get started">Para empezar</span>
+     <h3>Esencial</h3>
+     <p class="tagline muted" data-en="The full UGC method, at your own pace.">El método UGC completo, a tu ritmo.</p>
+     <p class="price">149 €</p>
+     <p class="pay muted" data-en="One-off payment or 3 instalments · 1 year of access">Pago único o 3 cuotas · 1 año de acceso</p>
+     <ul>
+      <li data-en="The 8 video modules">Los 8 módulos en vídeo</li>
+      <li data-en="Resource kit: scripts, hooks, proposals, emails to brands, briefs and checklists">Kit de recursos: guiones, hooks, propuestas, emails a marcas, briefings y checklists</li>
+      <li data-en="Updates while your access lasts">Actualizaciones mientras dure tu acceso</li>
+      <li data-en="On any device">Desde cualquier dispositivo</li>
+     </ul>
+     <div class="acts"><a class="btn ghost js-buy" data-plan="esencial" href="#" data-en="Start with Essentials">Empezar con Esencial</a></div>
+    </article>
+    <article class="plan featured">
+     <span class="badge" data-en="Recommended">Recomendado</span>
+     <h3>Pro</h3>
+     <p class="tagline muted" data-en="Mentoring + a real project with a brand.">Mentoría + proyecto real con una marca.</p>
+     <p class="price">599 €</p>
+     <p class="pay muted" data-en="One-off payment, 3 or 6 instalments · 2-month programme + 1 year of access">Pago único, 3 o 6 cuotas · Programa de 2 meses + 1 año de acceso</p>
+     <p class="plus" data-en="Everything in Essentials, plus:">Todo lo de Esencial, y además:</p>
+     <ul>
+      <li data-en="An assigned mentor">Mentor/a asignado/a</li>
+      <li data-en="Written feedback on your exercises">Feedback escrito de tus ejercicios</li>
+      <li data-en="3 live sessions in a small group">3 sesiones en directo en grupo reducido</li>
+      <li data-en="A real brand project for your portfolio">Proyecto real con una marca para tu portfolio</li>
+      <li data-en="Priority access to UGC Impulse network campaigns">Acceso prioritario a campañas de la red UGC Impulse</li>
+      <li data-en="Completion certificate">Certificado de finalización</li>
+      <li data-en="Private creator community">Comunidad privada de creadores</li>
+     </ul>
+     <div class="acts"><a class="btn js-buy" data-plan="pro" href="#" data-en="Enrol now">Inscribirme ahora</a><a class="btn ghost" href="#info" data-info="Pro" data-en="Ask for info">Pedir información</a></div>
+    </article>
+    <article class="plan">
+     <span class="badge" data-en="Maximum support">Máximo acompañamiento</span>
+     <h3>Pro Plus</h3>
+     <p class="tagline muted" data-en="Pro + 3 private sessions with an expert.">Pro + 3 asesorías privadas con una experta.</p>
+     <p class="price">849 €</p>
+     <p class="pay muted" data-en="One-off payment, 3 or 6 instalments · 2-month programme + 1 year of access">Pago único, 3 o 6 cuotas · Programa de 2 meses + 1 año de acceso</p>
+     <p class="plus" data-en="Everything in Pro, plus:">Todo lo de Pro, y además:</p>
+     <ul>
+      <li data-en="3 private 1:1 sessions">3 asesorías privadas 1:1</li>
+      <li data-en="A personalised career strategy">Estrategia de carrera personalizada</li>
+      <li data-en="In-depth portfolio review">Revisión a fondo de tu portfolio</li>
+      <li data-en="Priority support">Soporte prioritario</li>
+     </ul>
+     <div class="acts"><a class="btn js-buy" data-plan="proPlus" href="#" data-en="Enrol now">Inscribirme ahora</a><a class="btn ghost" href="#info" data-info="Pro Plus" data-en="Ask for info">Pedir información</a></div>
+    </article>
+   </div>
+   <div class="guar">
+    <span><b data-en="14-day guarantee.">Garantía de 14 días.</b> <span data-en="If it's not for you, we refund 100%.">Si no es para ti, te devolvemos el 100 %.</span></span>
+    <span><b data-en="Card payment.">Pago con tarjeta.</b> <span data-en="Instalments available.">Cuotas disponibles.</span></span>
+    <span><b data-en="Invoice included.">Factura incluida.</b> <span data-en="Useful if you're self-employed.">Útil si eres autónomo/a.</span></span>
+   </div>
+  </div>
+ </section>
+
+ <!-- QUÉ APRENDERÁS -->
+ <section class="band">
+  <div class="wrap">
+   <div class="head"><h2 data-en="What you'll learn">Qué aprenderás</h2><p class="lead" data-en="Not just how to film: how to run UGC as a business.">No solo a grabar: a llevar el UGC como un negocio.</p></div>
+   <div class="four">
+    <article><h3 data-en="Work like an agency">Trabajar como una agencia</h3><p class="muted" data-en="Processes, briefs, deliveries and revisions, so brands want to repeat.">Procesos, briefings, entregas y correcciones para que las marcas quieran repetir.</p></article>
+    <article><h3 data-en="Scripts that convert">Guiones que convierten</h3><p class="muted" data-en="Hooks, structure and calls to action designed to sell, not just to look nice.">Hooks, estructura y llamadas a la acción pensadas para vender, no solo para quedar bonitas.</p></article>
+    <article><h3 data-en="Professional production">Producción profesional</h3><p class="muted" data-en="Light, sound, framing and editing with just your phone.">Luz, sonido, encuadre y edición solo con tu móvil.</p></article>
+    <article><h3 data-en="Earn income">Generar ingresos</h3><p class="muted" data-en="Rates, usage rights, proposals and how to find your first clients.">Tarifas, derechos de uso, propuestas y cómo encontrar a tus primeros clientes.</p></article>
+   </div>
+  </div>
+ </section>
+
+ <!-- PARA TI -->
+ <section class="band soft" id="para-ti">
+  <div class="wrap">
+   <div class="head"><h2 data-en="This course is for you if…">Este curso es para ti si…</h2><p class="lead" data-en="You don't need previous experience or followers. You need a phone and the will to practise.">No necesitas experiencia previa ni seguidores. Necesitas un móvil y ganas de practicar.</p></div>
+   <div class="four">
+    <article><h3 data-en="You're starting from zero">Empiezas de cero</h3><p class="muted" data-en="You've heard about UGC and want to learn it properly from the beginning.">Has oído hablar del UGC y quieres aprenderlo bien desde el principio.</p></article>
+    <article><h3 data-en="You create but don't earn yet">Creas pero aún no cobras</h3><p class="muted" data-en="You already make content and want to turn it into paid work.">Ya haces contenido y quieres convertirlo en trabajo pagado.</p></article>
+    <article><h3 data-en="You want to level up">Quieres subir de nivel</h3><p class="muted" data-en="You've done collaborations and want better clients and rates.">Has hecho colaboraciones y quieres mejores clientes y tarifas.</p></article>
+    <article><h3 data-en="You come from marketing or creative work">Vienes del marketing o lo creativo</h3><p class="muted" data-en="You want to add UGC to your skills or offer it to clients.">Quieres sumar el UGC a lo que sabes hacer u ofrecérselo a clientes.</p></article>
+   </div>
+  </div>
+ </section>
+
+ <!-- FAQ -->
+ <section class="band" id="faq">
+  <div class="wrap split">
+   <h2 data-en="Frequently asked questions">Preguntas frecuentes</h2>
+   <div>
+    <details><summary data-en="When does it start?">¿Cuándo empieza?</summary><p data-en="Essentials starts the moment you enrol. Pro and Pro Plus run in groups: we'll tell you the next start date when you enrol or ask for information.">Esencial empieza en cuanto te inscribes. Pro y Pro Plus funcionan por grupos: te indicamos la próxima fecha de inicio al inscribirte o pedir información.</p></details>
+    <details><summary data-en="What's the difference between the plans?">¿Qué diferencia hay entre los planes?</summary><p data-en="All three include the full course. Pro adds a mentor, live sessions, a real brand project and priority access to network campaigns. Pro Plus adds three private sessions and a personalised strategy.">Los tres incluyen el curso completo. Pro añade mentor/a, sesiones en directo, un proyecto real con marca y acceso prioritario a campañas de la red. Pro Plus suma tres asesorías privadas y una estrategia personalizada.</p></details>
+    <details><summary data-en="Do I need experience or followers?">¿Necesito experiencia o seguidores?</summary><p data-en="No. In UGC the brand publishes the content, so what matters is how you film and tell the story, not your audience.">No. En UGC la marca publica el contenido, así que importa cómo grabas y cuentas, no tu audiencia.</p></details>
+    <details><summary data-en="How long do I have access?">¿Cuánto tiempo tengo acceso?</summary><p data-en="One year of access to the video lessons and resources in every plan.">Un año de acceso a las clases en vídeo y los recursos en todos los planes.</p></details>
+    <details><summary data-en="Can I get a refund?">¿Puedo pedir la devolución?</summary><p data-en="Yes. You have 14 days from the start of the course to ask for a full refund.">Sí. Tienes 14 días desde el inicio del curso para pedir la devolución completa.</p></details>
+    <details><summary data-en="Can I pay in instalments?">¿Puedo pagar a plazos?</summary><p data-en="Yes. Essentials in 3 instalments; Pro and Pro Plus in 3 or 6.">Sí. Esencial en 3 cuotas; Pro y Pro Plus en 3 o 6.</p></details>
+    <details><summary data-en="Is there a certificate?">¿Hay certificado?</summary><p data-en="Pro and Pro Plus include a UGC Impulse completion certificate. It is a private certificate, not an official qualification.">Pro y Pro Plus incluyen un certificado de finalización de UGC Impulse. Es un certificado privado, no una titulación oficial.</p></details>
+    <details><summary data-en="Do you issue invoices?">¿Emitís factura?</summary><p data-en="Yes, every purchase includes an invoice. If you're self-employed, ask your accountant whether you can deduct it.">Sí, todas las compras incluyen factura. Si eres autónomo/a, consulta con tu gestoría si puedes deducirla.</p></details>
+   </div>
+  </div>
+ </section>
+
+ <!-- INFO + CTA -->
+ <section class="band cta" id="empezar">
+  <div class="wrap">
+   <div>
+    <h2 data-en="Ready to start your UGC career?">¿Lista o listo para empezar tu carrera UGC?</h2>
+    <p data-en="Start today with Essentials, or ask us about Pro and Pro Plus and we'll help you choose.">Empieza hoy con Esencial, o pregúntanos por Pro y Pro Plus y te ayudamos a elegir.</p>
+    <div class="ctas" style="margin-top:26px"><a class="btn js-buy" data-plan="esencial" href="#" data-en="Start with Essentials">Empezar con Esencial</a><a class="btn ghost" href="#info" data-info="Pro" data-en="Info about Pro / Pro Plus">Info sobre Pro / Pro Plus</a></div>
+   </div>
+   <ul>
+    <li data-en="14-day guarantee">Garantía de 14 días</li>
+    <li data-en="Pay in instalments">Pago en cuotas</li>
+    <li><span data-en="Questions?">¿Dudas?</span>&nbsp;<a class="js-mail" href="#" style="color:#fff">info@ugcimpulse.com</a></li>
+   </ul>
+  </div>
+ </section>
+
+ <section class="band soft" id="info">
+  <div class="wrap split">
+   <div>
+    <h2 data-en="Ask for information">Pide información</h2>
+    <p class="lead" style="margin:18px 0 28px" data-en="Tell us where you're starting from and we'll recommend the plan that fits you best.">Cuéntanos desde dónde partes y te recomendamos el plan que mejor encaja contigo.</p>
+    <div class="box">
+     <div><h3 data-en="Book a 1:1 session">Reserva una asesoría 1:1</h3><p class="muted" style="margin-top:6px" data-en="A private session to review your profile and decide your next steps.">Una sesión privada para revisar tu perfil y decidir tus próximos pasos.</p></div>
+     <a class="btn js-session" href="#" data-en="See available sessions">Ver sesiones disponibles</a>
+    </div>
+   </div>
+   <form id="info-form" data-kind="academia" novalidate>
+    <h3 data-en="Information request">Solicitud de información</h3>
+    <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <div class="grid2">
+     <div><label for="i-name" data-en="Name">Nombre</label><input id="i-name" name="nombre" required autocomplete="name"></div>
+     <div><label for="i-email">Email</label><input id="i-email" name="email" type="email" required autocomplete="email"></div>
+     <div class="full"><label for="i-plan" data-en="Plan">Plan</label>
+      <select id="i-plan" name="plan" required>
+       <option value="" data-en="Choose one">Elige uno</option>
+       <option value="Esencial">Esencial · 149 €</option>
+       <option value="Pro">Pro · 599 €</option>
+       <option value="Pro Plus">Pro Plus · 849 €</option>
+       <option value="No lo sé" data-en="Not sure yet">Aún no lo sé</option>
+      </select></div>
+     <div class="full"><label for="i-msg" data-en="Your situation">Tu situación</label><textarea id="i-msg" name="mensaje" placeholder="¿Has hecho UGC antes? ¿Qué te gustaría conseguir?" data-en-ph="Have you done UGC before? What would you like to achieve?"></textarea></div>
+     <label class="check full"><input type="checkbox" name="privacidad" required><span data-en="I accept the <a href='index.html#privacidad'>privacy policy</a>.">Acepto la <a href="index.html#privacidad">política de privacidad</a>.</span></label>
+    </div>
+    <div class="send"><button class="btn" type="submit" data-en="Send request">Enviar solicitud</button><p class="status" role="status" aria-live="polite"></p></div>
+   </form>
+  </div>
+ </section>
+</main>
+
+<footer>
+ <div class="wrap">
+  <div class="fgrid">
+   <div>
+    <a class="logo" href="index.html"><img src="logo-horizontal.png" alt="UGC Impulse" width="180" height="41"></a>
+    <p class="small" style="margin:14px 0;max-width:34ch" data-en="UGC content for brands. Network and academy for creators.">Contenido UGC para marcas. Red y academia para creadores.</p>
+    <p class="small"><a class="js-mail" href="#">info@ugcimpulse.com</a></p>
+   </div>
+   <div><h4 data-en="Services">Servicios</h4><ul><li><a href="index.html#s-services" data-en="UGC content">Contenido UGC</a></li><li><a href="index.html#s-services" data-en="UGC ads">Anuncios con UGC</a></li><li><a href="index.html#s-sectors" data-en="Sectors">Sectores</a></li></ul></div>
+   <div><h4 data-en="Academy">Academia</h4><ul><li><a href="#modulos" data-en="Modules">Módulos</a></li><li><a href="#precios" data-en="Pricing">Precios</a></li><li><a href="#faq" data-en="FAQ">Preguntas</a></li></ul></div>
+   <div><h4 data-en="Creators">Creadores</h4><ul><li><a href="index.html#s-join" data-en="Join the network">Únete a la red</a></li><li><a href="index.html#s-faq" data-en="Creator FAQ">Preguntas de creadores</a></li></ul></div>
+   <div><h4>Legal</h4><ul><li><a href="index.html#aviso-legal" data-en="Legal notice">Aviso legal</a></li><li><a href="index.html#privacidad" data-en="Privacy policy">Política de privacidad</a></li><li><a href="index.html#cookies" data-en="Cookie policy">Política de cookies</a></li></ul></div>
+  </div>
+  <div class="fbase small"><span>© <span id="yr">2026</span> UGC Impulse</span><span data-en="Spain · Spanish and English">España · Español e inglés</span></div>
+ </div>
+</footer>
+
+<script>
+{
+/* ================= AJUSTES: cambia estos valores ================= */
+const CONFIG = {
+  email: 'info@ugcimpulse.com',
+  checkout: {                                    // enlaces de pago de cada plan (Stripe, Hotmart…)
+    esencial: 'https://TU-PASARELA-DE-PAGO/esencial',
+    pro: 'https://TU-PASARELA-DE-PAGO/pro',
+    proPlus: 'https://TU-PASARELA-DE-PAGO/pro-plus'
+  },
+  sessionsUrl: 'https://calendly.com/TU-USUARIO/asesoria-1-1', // asesorías 1:1
+  formEndpoint: 'https://formsubmit.co/ajax/info@ugcimpulse.com'
+};
+/* ================================================================== */
+
+const L = () => document.documentElement.lang === 'en' ? 'en' : 'es';
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+const MODS = [
+  { t: { es: 'Fundamentos del UGC', en: 'UGC fundamentals' }, d: { es: 'Qué es, por qué lo compran las marcas y qué tipos de encargo existen.', en: 'What it is, why brands buy it and what kinds of jobs exist.' }, i: { es: ['UGC frente a influencer marketing', 'Formatos: testimonio, unboxing, tutorial, reseña', 'Cómo usan las marcas tus vídeos', 'Qué necesitas para empezar'], en: ['UGC vs influencer marketing', 'Formats: testimonial, unboxing, tutorial, review', 'How brands use your videos', 'What you need to get started'] } },
+  { t: { es: 'Tu perfil y portfolio', en: 'Your profile and portfolio' }, d: { es: 'Cómo presentarte para que una marca te elija.', en: 'How to present yourself so a brand picks you.' }, i: { es: ['Elegir nicho', 'Vídeos de muestra sin clientes', 'Dónde y cómo mostrar tu portfolio'], en: ['Choosing a niche', 'Sample videos without clients', 'Where and how to show your portfolio'] } },
+  { t: { es: 'Guiones y hooks', en: 'Scripts and hooks' }, d: { es: 'La estructura que hace que un vídeo venda.', en: 'The structure that makes a video sell.' }, i: { es: ['Hooks para los primeros 3 segundos', 'Problema, solución y prueba', 'Llamadas a la acción'], en: ['Hooks for the first 3 seconds', 'Problem, solution and proof', 'Calls to action'] } },
+  { t: { es: 'Grabación con el móvil', en: 'Filming with your phone' }, d: { es: 'Luz, sonido y encuadre sin equipo caro.', en: 'Light, sound and framing without expensive gear.' }, i: { es: ['Luz natural y artificial', 'Audio limpio', 'Planos que funcionan en vertical'], en: ['Natural and artificial light', 'Clean audio', 'Shots that work in vertical'] } },
+  { t: { es: 'Edición rápida', en: 'Fast editing' }, d: { es: 'Ritmo, subtítulos y entregas en el formato correcto.', en: 'Pacing, captions and delivery in the right format.' }, i: { es: ['Montaje con apps móviles', 'Subtítulos y textos en pantalla', 'Exportar para cada plataforma'], en: ['Editing with mobile apps', 'Captions and on-screen text', 'Exporting for each platform'] } },
+  { t: { es: 'UGC para anuncios', en: 'UGC for ads' }, d: { es: 'Variantes y hooks para Meta y TikTok Ads.', en: 'Variants and hooks for Meta and TikTok Ads.' }, i: { es: ['Qué pide un equipo de performance', 'Variantes para test A/B', 'Errores que hacen rechazar un anuncio'], en: ['What a performance team wants', 'Variants for A/B tests', 'Mistakes that get an ad rejected'] } },
+  { t: { es: 'Tarifas, derechos y contratos', en: 'Rates, rights and contracts' }, d: { es: 'Cuánto cobrar y qué firmar.', en: 'What to charge and what to sign.' }, i: { es: ['Cómo calcular tu tarifa', 'Derechos de uso y duración', 'Contratos y facturación'], en: ['How to set your rate', 'Usage rights and duration', 'Contracts and invoicing'] } },
+  { t: { es: 'Conseguir clientes', en: 'Finding clients' }, d: { es: 'Prospección, propuestas y relación con las marcas.', en: 'Prospecting, proposals and brand relationships.' }, i: { es: ['Dónde encontrar marcas', 'Emails y propuestas que se responden', 'Cómo conseguir que repitan'], en: ['Where to find brands', 'Emails and proposals that get answers', 'How to get repeat work'] } }
+];
+const renderMods = () => {
+  const l = L();
+  document.getElementById('mods').innerHTML = MODS.map((m, n) => `<details${n === 0 ? ' open' : ''}><summary><span>${esc(m.t[l])}</span><small>${esc(m.d[l])}</small></summary><ul>${m.i[l].map(x => `<li>${esc(x)}</li>`).join('')}</ul></details>`).join('');
+};
+
+/* portada ilustrada */
+const ph = (bg, shape, cap) => `<div class="phone"><svg viewBox="0 0 180 320" preserveAspectRatio="xMidYMid slice"><rect width="180" height="320" fill="${bg}"/>${shape}</svg><div class="rec"><i></i>REC</div><div class="cap"><span>${cap}</span></div></div>`;
+document.getElementById('cover').insertAdjacentHTML('afterbegin',
+  ph('#fff4e0', '<rect x="66" y="112" width="48" height="118" rx="12" fill="#fff"/><rect x="74" y="88" width="32" height="28" rx="6" fill="#2a2f3a"/><rect x="74" y="150" width="32" height="34" rx="4" fill="#fde3b8"/>', 'hook') +
+  ph('#f6f4fa', '<path d="M30 150l60-26 60 26v78l-60 26-60-26z" fill="#c7a98a"/><path d="M30 150l60 26 60-26-60-26z" fill="#dcc1a5"/><path d="M90 176v78l-60-26v-78z" fill="#b89474"/><circle cx="90" cy="116" r="9" fill="#ff3b30"/>', 'unboxing'));
+
+/* enlaces */
+document.getElementById('yr').textContent = new Date().getFullYear();
+for (const a of document.querySelectorAll('.js-buy')) { a.href = CONFIG.checkout[a.dataset.plan]; a.target = '_blank'; a.rel = 'noopener'; }
+for (const a of document.querySelectorAll('.js-session')) { a.href = CONFIG.sessionsUrl; a.target = '_blank'; a.rel = 'noopener'; }
+for (const a of document.querySelectorAll('.js-mail')) { a.href = 'mailto:' + CONFIG.email; a.textContent = CONFIG.email; }
+for (const a of document.querySelectorAll('[data-info]')) a.addEventListener('click', () => { document.getElementById('i-plan').value = a.dataset.info; });
+
+/* idioma */
+const langBtn = document.getElementById('lang');
+const setLang = l => {
+  document.documentElement.lang = l;
+  for (const el of document.querySelectorAll('[data-en]')) {
+    if (el.dataset.es === undefined) el.dataset.es = el.innerHTML;
+    el.innerHTML = l === 'en' ? el.dataset.en : el.dataset.es;
+  }
+  for (const el of document.querySelectorAll('[data-en-ph]')) {
+    if (el.dataset.esPh === undefined) el.dataset.esPh = el.placeholder;
+    el.placeholder = l === 'en' ? el.dataset.enPh : el.dataset.esPh;
+  }
+  langBtn.textContent = l === 'en' ? 'ES' : 'EN';
+  try { localStorage.setItem('ugci-lang', l); } catch (e) {}
+  renderMods();
+};
+langBtn.addEventListener('click', () => setLang(L() === 'en' ? 'es' : 'en'));
+
+/* menú móvil */
+const nav = document.getElementById('nav'), burger = document.getElementById('burger');
+burger.addEventListener('click', () => { const o = nav.classList.toggle('open'); burger.setAttribute('aria-expanded', o); });
+nav.addEventListener('click', e => { if (e.target.closest('a')) { nav.classList.remove('open'); burger.setAttribute('aria-expanded', 'false'); } });
+
+/* formulario */
+const T = {
+  es: { sending: 'Enviando…', ok: 'Recibido. Te escribiremos pronto.', bad: 'Revisa los campos marcados.', err: 'No se pudo enviar. Escríbenos a ' },
+  en: { sending: 'Sending…', ok: 'Received. We\'ll be in touch soon.', bad: 'Please check the highlighted fields.', err: 'Couldn\'t send it. Email us at ' }
+};
+const form = document.getElementById('info-form');
+form.addEventListener('submit', async ev => {
+  ev.preventDefault();
+  const t = T[L()], status = form.querySelector('.status'), submit = form.querySelector('button[type=submit]');
+  status.className = 'status';
+  if (!form.checkValidity()) { form.reportValidity(); status.textContent = t.bad; status.classList.add('err'); return; }
+  const fd = new FormData(form);
+  fd.append('_subject', 'Solicitud de información · Academia UGC Impulse');
+  fd.append('_template', 'table');
+  fd.append('idioma_web', L());
+  submit.disabled = true; status.textContent = t.sending;
+  try {
+    const r = await fetch(CONFIG.formEndpoint, { method: 'POST', headers: { Accept: 'application/json' }, body: fd });
+    if (!r.ok) throw new Error(r.status);
+    form.reset(); status.textContent = t.ok; status.classList.add('ok');
+  } catch (e) {
+    status.textContent = t.err + CONFIG.email; status.classList.add('err');
+  } finally { submit.disabled = false; }
+});
+
+/* arranque */
+let lang0 = 'es';
+try { lang0 = localStorage.getItem('ugci-lang') || ((navigator.language || 'es').toLowerCase().startsWith('es') ? 'es' : 'en'); } catch (e) {}
+if (location.hash === '#en') lang0 = 'en';
+if (lang0 === 'en') setLang('en'); else renderMods();
+}
+</script>
+</body>
+</html>
