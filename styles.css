@@ -262,3 +262,9 @@ footer{border-top:1px solid var(--line);padding:56px max(5vw,18px) 32px}
 footer{background:#fff}
 @media(max-width:1020px){.hero-side{padding:18px 20px}}
 @media(prefers-reduced-motion:reduce){.btn,.svc article,.sectors button{transition:none}}
+
+/* ===== vídeos reales ===== */
+.phone.real{background:#11141b}
+.phone video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.gallery figure{position:relative}
+.snd{position:absolute;left:50%;transform:translateX(-50%);top:calc(100% - 92px);font:600 12.5px "Instrument Sans",sans-serif;background:rgba(17,20,27,.72);color:#fff;border:0;border-radius:999px;height:32px;padding:0 12px;cursor:pointer;white-space:nowrap;backdrop-filter:blur(6px)}

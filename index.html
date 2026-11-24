@@ -141,7 +141,7 @@
    <div class="head"><h2 data-en="Formats we produce">Formatos que producimos</h2><p class="lead" data-en="Filter by sector. Each video is designed for one job: stop the scroll, explain the product or close the sale.">Filtra por sector. Cada vídeo tiene una misión: parar el scroll, explicar el producto o cerrar la venta.</p></div>
    <div class="chips" id="chips" role="group" aria-label="Sector"></div>
    <div class="gallery" id="gallery"></div>
-   <p class="small" style="margin-top:22px" data-en="Illustrations: replace them with your real videos when you have them.">Ilustraciones: sustitúyelas por tus vídeos reales cuando los tengas.</p>
+   <p class="small" id="illu-note" style="margin-top:22px" data-en="Illustrations: replace them with your real videos when you have them.">Ilustraciones: sustitúyelas por tus vídeos reales cuando los tengas.</p>
   </div>
  </section>
 
@@ -450,16 +450,51 @@ const scene = (k, c) => {
   };
   return `<svg viewBox="0 0 180 320" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c[0]}"/><stop offset="1" stop-color="${c[1]}"/></linearGradient></defs><rect width="180" height="320" fill="url(#${id})"/>${shapes[k]}</svg>`;
 };
-const phone = (v, i, tag) => `<div class="phone">${scene(v.k, v.c)}<div class="rec"><i></i>REC 00:${String(8 + i * 7 % 50).padStart(2, '0')}</div>${tag ? `<div class="tag">${esc(tx(v.f))}</div>` : ''}<div class="cap"><span>${esc(tx(v.cap))}</span></div><div class="handle">@tu.nombre</div></div>`;
+/* archivos reales de la carpeta media/ (se detectan solos) */
+const MEDIA = { videos: {}, posters: {}, logos: [], ready: false };
+const pad = n => String(n).padStart(2, '0');
+const exists = async url => {
+  try {
+    const r = await fetch(url, { method: 'HEAD', cache: 'no-cache' });
+    return r.ok && !(r.headers.get('content-type') || '').includes('text/html');
+  } catch (e) { return false; }
+};
+const loadMedia = async () => {
+  const jobs = [];
+  for (let n = 1; n <= VIDEOS.length; n++) {
+    jobs.push(exists(`media/videos/video-${pad(n)}.mp4`).then(ok => { if (ok) MEDIA.videos[n] = `media/videos/video-${pad(n)}.mp4`; }));
+    jobs.push(exists(`media/videos/video-${pad(n)}.jpg`).then(ok => { if (ok) MEDIA.posters[n] = `media/videos/video-${pad(n)}.jpg`; }));
+  }
+  const found = [];
+  for (let n = 1; n <= 12; n++) jobs.push(exists(`media/logos/logo-${pad(n)}.png`).then(ok => { if (ok) found[n] = `media/logos/logo-${pad(n)}.png`; }));
+  await Promise.all(jobs);
+  MEDIA.logos = found.filter(Boolean);
+  MEDIA.ready = true;
+  render();
+};
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const phone = (v, i, tag, slot) => {
+  const src = MEDIA.videos[slot];
+  if (src) {
+    const poster = MEDIA.posters[slot] ? ` poster="${MEDIA.posters[slot]}"` : '';
+    return `<div class="phone real"><video src="${src}"${poster} muted loop playsinline preload="${poster ? 'none' : 'metadata'}"${reduce ? ' controls' : ''}></video>${tag ? `<div class="tag">${esc(tx(v.f))}</div>` : ''}</div>`;
+  }
+  return `<div class="phone">${scene(v.k, v.c)}<div class="rec"><i></i>REC 00:${String(8 + i * 7 % 50).padStart(2, '0')}</div>${tag ? `<div class="tag">${esc(tx(v.f))}</div>` : ''}<div class="cap"><span>${esc(tx(v.cap))}</span></div><div class="handle">@tu.nombre</div></div>`;
+};
+/* reproducir solo los vídeos visibles */
+const vio = 'IntersectionObserver' in window ? new IntersectionObserver(es => {
+  for (const e of es) { const v = e.target; if (e.isIntersecting && !reduce) { v.play().catch(() => {}); } else v.pause(); }
+}, { threshold: .35 }) : null;
+const watchVideos = () => { if (vio) for (const v of document.querySelectorAll('.phone.real video')) vio.observe(v); };
 
 let filter = 'todos';
 const render = () => {
   const lang = L();
-  document.getElementById('track').innerHTML = [...VIDEOS, ...VIDEOS].map((v, i) => phone(v, i, true)).join('');
+  document.getElementById('track').innerHTML = [...VIDEOS, ...VIDEOS].map((v, i) => phone(v, i, true, i % VIDEOS.length + 1)).join('');
   document.getElementById('chips').innerHTML = [{ id: 'todos', es: 'Todos', en: 'All' }, ...SECTORS].map(s => `<button class="chip" type="button" data-f="${s.id}" aria-pressed="${s.id === filter}">${esc(s[lang])}</button>`).join('');
-  const vids = VIDEOS.filter(v => filter === 'todos' || v.s === filter);
+  const vids = VIDEOS.map((v, k) => ({ ...v, slot: k + 1 })).filter(v => filter === 'todos' || v.s === filter);
   document.getElementById('gallery').innerHTML = vids.length
-    ? vids.map((v, i) => `<figure>${phone(v, i, false)}<figcaption><b>${esc(tx(v.f))}</b>${esc(SECTORS.find(s => s.id === v.s)[lang])}</figcaption></figure>`).join('')
+    ? vids.map((v, i) => `<figure>${phone(v, i, false, v.slot)}${MEDIA.videos[v.slot] ? `<button class="snd" type="button" data-snd>${lang === 'en' ? 'Sound on' : 'Activar sonido'}</button>` : ''}<figcaption><b>${esc(tx(v.f))}</b>${esc(SECTORS.find(s => s.id === v.s)[lang])}</figcaption></figure>`).join('')
     : `<p class="empty">${lang === 'en' ? 'We will add examples for this sector soon. ' : 'Pronto añadiremos ejemplos de este sector. '}<a href="#s-brief">${lang === 'en' ? 'Ask us about it' : 'Pregúntanos'}</a></p>`;
   document.getElementById('method').innerHTML = METHOD.map(m => `<li><h3>${esc(m[lang])}</h3><p class="muted">${esc(tx(m.d))}</p></li>`).join('');
   document.getElementById('process').innerHTML = PROCESS.map(m => `<li><span class="when">${esc(tx(m.w))}</span><h3>${esc(m[lang])}</h3><p class="muted">${esc(tx(m.d))}</p></li>`).join('');
@@ -474,8 +509,10 @@ const render = () => {
   const st = CONFIG.stats, lo = CONFIG.logos, te = CONFIG.team, re = CONFIG.reviews;
   document.getElementById('s-stats').hidden = !st.length;
   document.getElementById('stats').innerHTML = st.map(s => `<div><b>${esc(s.n)}</b><span class="muted">${esc(s[lang])}</span></div>`).join('');
-  document.getElementById('s-logos').hidden = !lo.length;
-  document.getElementById('logos').innerHTML = lo.map(l => l.img ? `<img src="${esc(l.img)}" alt="${esc(l.name)}">` : `<span>${esc(l.name)}</span>`).join('');
+  document.getElementById('s-logos').hidden = !lo.length && !MEDIA.logos.length;
+  document.getElementById('logos').innerHTML = lo.map(l => l.img ? `<img src="${esc(l.img)}" alt="${esc(l.name)}">` : `<span>${esc(l.name)}</span>`).join('') + MEDIA.logos.map(u => `<img src="${u}" alt="${lang === 'en' ? 'Client logo' : 'Logo de cliente'}" loading="lazy">`).join('');
+  document.getElementById('illu-note').hidden = Object.keys(MEDIA.videos).length >= VIDEOS.length;
+  watchVideos();
   document.getElementById('s-team').hidden = !te.length;
   document.getElementById('team').innerHTML = te.map(p => `<figure>${p.img ? `<img src="${esc(p.img)}" alt="${esc(p.name)}">` : ''}<figcaption style="margin-top:12px"><b>${esc(p.name)}</b><br><span class="muted">${esc(p[lang])}</span></figcaption></figure>`).join('');
   document.getElementById('s-reviews').hidden = !re.length;
@@ -524,6 +561,14 @@ const setAud = (a, scroll) => {
   if (scroll) window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 document.addEventListener('click', e => {
+  const sb = e.target.closest('[data-snd]');
+  if (sb) {
+    const v = sb.previousElementSibling.querySelector('video'); if (!v) return;
+    for (const o of document.querySelectorAll('.phone.real video')) if (o !== v) o.muted = true;
+    v.muted = !v.muted; if (!v.muted) v.play().catch(() => {});
+    for (const b of document.querySelectorAll('[data-snd]')) b.textContent = b === sb && !v.muted ? (L() === 'en' ? 'Mute' : 'Silenciar') : (L() === 'en' ? 'Sound on' : 'Activar sonido');
+    return;
+  }
   const t = e.target.closest('[data-aud-set],[data-aud-link],[data-close],#reopen,[data-f],[data-goto],[data-faq-tab],[data-faq],.dd>button,.nav a');
   if (!t) return;
   if (t.dataset.audSet) { setAud(t.dataset.audSet, !pop.hidden); if (!pop.hidden) closePop(); closeNav(); }
@@ -589,6 +634,7 @@ if (location.hash === '#en') lang0 = 'en';
 if (location.hash === '#marcas') aud0 = 'marca';
 if (location.hash === '#creadores') aud0 = 'creador';
 if (lang0 === 'en') setLang('en'); else render();
+loadMedia();
 if (aud0 === 'marca' || aud0 === 'creador') setAud(aud0, false);
 else if (!seen) openPop();
 }
